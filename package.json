@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.jsx",
   "scripts": {
-    "build-dev": "webpack --mode=development --watch",
-    "server-dev": "nodemon backend/server.js",
+    "build:dev": "webpack --mode=development --watch",
+    "start:dev": "nodemon backend/server.js",
     "start": "node backend/server.js"
   },
   "author": "Gage Guzman",

@@ -1,3 +1,11 @@
 #root {
     color:aqua;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 1pt solid blue;
+}

@@ -8,7 +8,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.resolve(__dirname + './../client/dist')))
 var cors = require("cors");
 app.use(cors());
-const database = require('./database.js').table
+const axios =  require('axios')
+
 
 app.use('*', (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -18,26 +19,19 @@ app.use('*', (req, res, next) => {
   });
 
 
-app.get('/doctors', (req, res) => {
-  // let body = JSON.stringify(req.body || {})
-  //   database.doctors.getDoctor(JSON.parse(body))
-  //   .then((doctors) => {
-  //     res.status(200).send(doctors)
-  //   })
-  //   .catch((error) => {
-  //     res.status(500).send(error)
-  //   })
-  res.end
+app.get('/quote', async (req, res) => {
+  try {
+    const { data } = await axios.get('https://zenquotes.io/api/random')
+    res.send(data)
+  }catch(error) {
+    res.send(error)
+  }
 })
-// app.get('/', function (req, res) {
 
-//     res.write(__dirname + '/../client/dist')
-//     res.end()
-// });
-
-// app.get('/', function(req, res){
-//     res.sendFile(path.resolve(__dirname+ '/../client/dist/index.html')); // change the path to your index.html
-// });
+app.post('/send/it', (req, res) => {
+    console.log("request ->", req.body)
+    res.send(req.body)
+})
 
 app.listen(port, () => {
     console.log('Server started at http://localhost:' + port);
