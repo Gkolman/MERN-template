@@ -2,7 +2,7 @@
   "name": "calendar",
   "version": "1.0.0",
   "description": "",
-  "main": "index.jsx",
+  "main": "index.js",
   "scripts": {
     "build:dev": "webpack --mode=development --watch",
     "start:dev": "nodemon backend/server.js",
@@ -36,7 +36,7 @@
     "mongoose": "^6.6.0",
     "nodemon": "^2.0.19",
     "path": "^0.12.7",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react": "16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0"
   }
 }
